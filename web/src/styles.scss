@@ -1,10 +1,11 @@
+@use "./styles/primeng/p-button.scss";
+@use "./styles/p-inputtext.scss";
+@use "./styles/p-select.scss";
+@use "./styles/p-tag.scss";
+
 @import "primeicons/primeicons.css";
 
 
-@import "./styles/p-inputtext.scss";
-@import "./styles/p-select.scss";
-@import "./styles/p-tag.scss";
-@import "./styles/primeng/p-button.scss";
 
 /* You can add global styles to this file, and also import other style files */
 @tailwind base;
