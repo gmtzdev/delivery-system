@@ -5,6 +5,6 @@ export const loggedGuard: CanActivateFn = (route, state) => {
   const enviromnetInject = inject(EnvironmentInjector);
   const router: Router = enviromnetInject.get(Router);
 
-  router.navigate(['login']);
-  return false;
+  // router.navigate(['login']);
+  return true;
 };

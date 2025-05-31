@@ -1,5 +1,37 @@
 @import "primeicons/primeicons.css";
+
+
+@import "./styles/p-inputtext.scss";
+@import "./styles/p-select.scss";
+@import "./styles/p-tag.scss";
+
 /* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root{
+    --main-bg: #e9edfb;
+    --menu-bg: #b8b0b0;
+    
+    
+    /* Dark */
+    --main-dark-bg: #121212;
+    --card-dark-bg: #18181b;
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: var(--p-editor-content-border-color);
+}
+
+
+.card{
+    @apply rounded-md py-2 px-3 bg-white dark:bg-[--card-dark-bg]
+}
+
+.pi-small{
+    font-size: 10px!important;
+}

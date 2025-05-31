@@ -1,0 +1,51 @@
+<section class="layout-sidebar">
+    <span class="inline-flex items-center justify-center">
+        Delivery
+    </span>
+    <!-- justify-center styleClass="w-full md:w-60" -->
+    <p-panelmenu [model]="items" class="flex w-60" [multiple]="true">
+        <ng-template #item let-item>
+
+            @if(item.route){
+                <a  [routerLink]="item.route"
+                    class="flex items-center cursor-pointer text-surface-700 dark:text-surface-0 px-4 py-2">
+                    <span [class]="item.icon"></span>
+                    <span class="ml-2">{{ item.label }}</span>
+                    <i *ngIf="item.items" class="pi pi-angle-down text-primary ml-auto"></i>
+                </a>
+            }@else{
+                <a class="flex items-center cursor-pointer text-surface-700 dark:text-surface-0 px-4 py-2">
+                    <span [class]="item.icon"></span>
+                    <span class="ml-2">{{ item.label }}</span>
+                    <i *ngIf="item.items" class="pi pi-angle-down text-primary ml-auto"></i>
+                </a>
+            }
+            
+
+            <!-- <ng-template #urlRef>
+                
+                <a *ngIf="item.routerLink; else noLink" [routerLink]="item.routerLink" class="flex align-items-center cursor-pointer text-color px-3 py-2">
+                    <span [class]="item.icon"></span>
+                    <span class="ml-2">{{ item.label }}</span>
+                </a>
+
+                <ng-template #noLink>
+                    sale este
+
+                </ng-template>
+
+            </ng-template> -->
+
+        </ng-template>
+
+    </p-panelmenu>
+
+    
+    <button pRipple class="relative overflow-hidden w-full border-0 bg-transparent flex items-start p-2 pl-4 hover:bg-surface-100 dark:hover:bg-surface-800 rounded-none cursor-pointer transition-colors duration-200">
+        <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" class="mr-2" shape="circle" />
+        <span class="inline-flex flex-col">
+            <span class="font-bold">Amy Elsner</span>
+            <span class="text-sm">Admin</span>
+        </span>
+    </button>
+</section>

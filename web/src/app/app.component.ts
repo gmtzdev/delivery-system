@@ -1,18 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, EnvironmentInjector, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { MenuItem } from 'primeng/api';
-import { Toolbar } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
-import { SplitButton } from 'primeng/splitbutton';
+
 import { InputTextModule } from 'primeng/inputtext';
-import { IconField } from 'primeng/iconfield';
-import { InputIcon } from 'primeng/inputicon';
 
 import { AvatarModule } from 'primeng/avatar';
-import { Menubar } from 'primeng/menubar';
+
 import { BadgeModule } from 'primeng/badge';
 import { CommonModule } from '@angular/common';
+import { ThemeService } from './core/services/theme.service';
 
 
 @Component({
@@ -21,10 +19,13 @@ import { CommonModule } from '@angular/common';
     <router-outlet></router-outlet>
   `,
   styleUrl: './app.component.scss',
-  imports: [RouterOutlet, Toolbar, ButtonModule, SplitButton, InputTextModule, IconField, InputIcon, AvatarModule, Menubar, BadgeModule, CommonModule]
+  imports: [RouterOutlet, ButtonModule, InputTextModule, AvatarModule, BadgeModule, CommonModule]
 })
 export class AppComponent {
-  title = 'web-delivery';
+    private environmentInjector = inject(EnvironmentInjector);
+    private themeService = this.environmentInjector.get(ThemeService);
+
+    title = 'web-delivery';
 
   // items: MenuItem[] | undefined;
 
@@ -65,6 +66,8 @@ export class AppComponent {
     items2: MenuItem[] | undefined;
 
     ngOnInit() {
+        // Init Theme Service
+        this.themeService.initTheme();
         this.items = [
             {
                 label: 'Home',
